@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Crie um avatar</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="./css/style.css" />
+        <script src="./app.js"></script>
+    </head>
+
+    <body>
+        <div id="app">
+            <main class="main">
+                <section class="section-one">
+                    <div class="d-flex-col">
+                        <img :src="hat" alt="Hat" class="mb-1" />
+                        <img :src="head" alt="Hat" class="mb-1" />
+                        <img :src="shirt" alt="Hat" class="mb-1" />
+                        <img :src="legs" alt="Hat" />
+                    </div>
+                </section>
+
+                <section class="section-two">
+                    <div class="d-flex-col">
+                        <h2 class="mb-3">Crie seu avatar</h2>
+
+                        <div class="d-flex mb-3 container-opts">
+                            <h3 class="mb-1">Acessórios para a cabeça</h3>
+
+                            <div class="container-radio-btns">
+                                <div class="container-radio-btn">
+                                    <input
+                                        type="radio"
+                                        class="radio-btn"
+                                        value="cowboyHat"
+                                        v-model="inputHat"
+                                    />
+                                    <label>Chapéu Cowboy</label>
+                                </div>
+
+                                <div class="container-radio-btn">
+                                    <input
+                                        type="radio"
+                                        class="radio-btn"
+                                        value="vikingHelmet"
+                                        v-model="inputHat"
+                                    />
+                                    <label>Capacete Viking</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex mb-3 container-opts">
+                            <h3 class="mb-1">Cabeça</h3>
+
+                            <div class="container-radio-btns">
+                                <div class="container-radio-btn">
+                                    <input
+                                        type="radio"
+                                        class="radio-btn"
+                                        value="head1"
+                                        v-model="inputHead"
+                                    />
+                                    <label>Cabeça 1</label>
+                                </div>
+
+                                <div class="container-radio-btn">
+                                    <input
+                                        type="radio"
+                                        class="radio-btn"
+                                        value="head2"
+                                        v-model="inputHead"
+                                    />
+                                    <label>Cabeça 2</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex mb-3 container-opts">
+                            <h3 class="mb-1">Camisa</h3>
+
+                            <div class="container-radio-btns">
+                                <div class="container-radio-btn">
+                                    <input
+                                        type="radio"
+                                        class="radio-btn"
+                                        value="shirt1"
+                                        v-model="inputShirt"
+                                    />
+                                    <label>Camisa social</label>
+                                </div>
+
+                                <div class="container-radio-btn">
+                                    <input
+                                        type="radio"
+                                        class="radio-btn"
+                                        value="shirt2"
+                                        v-model="inputShirt"
+                                    />
+                                    <label>Camisa Viking</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex container-opts">
+                            <h3 class="mb-1">Calça</h3>
+
+                            <div class="container-radio-btns">
+                                <div class="container-radio-btn">
+                                    <input
+                                        type="radio"
+                                        class="radio-btn"
+                                        value="legs1"
+                                        v-model="inputLeg"
+                                    />
+                                    <label>Calça preta</label>
+                                </div>
+
+                                <div class="container-radio-btn">
+                                    <input
+                                        type="radio"
+                                        class="radio-btn"
+                                        value="legs2"
+                                        v-model="inputLeg"
+                                    />
+                                    <label>Calça Viking</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <script>
+            const vm = new Vue({
+                el: "#app",
+                data: {
+                    inputHat: "",
+                    inputHead: "",
+                    inputShirt: "",
+                    inputLeg: "",
+                },
+                methods: {},
+                computed: {
+                    hat() {
+                        switch (this.inputHat) {
+                            case "cowboyHat":
+                                return "./images/cowboy_hat.png"
+                            case "vikingHelmet":
+                                return "./images/vikings_hat.png"
+                            default:
+                                return "./images/hat.png"
+                        }
+                    },
+                    head() {
+                        switch (this.inputHead) {
+                            case "head1":
+                                return "./images/head1.png"
+                            case "head2":
+                                return "./images/head2.png"
+                            default:
+                                return "./images/head.png"
+                        }
+                    },
+                    shirt() {
+                        switch (this.inputShirt) {
+                            case "shirt1":
+                                return "./images/superior_body1.png"
+                            case "shirt2":
+                                return "./images/superior_body2.png"
+                            default:
+                                return "./images/superior_body.png"
+                        }
+                    },
+                    legs() {
+                        switch (this.inputLeg) {
+                            case "legs1":
+                                return "./images/legs1.png"
+                            case "legs2":
+                                return "./images/legs2.png"
+                            default:
+                                return "./images/legs.png"
+                        }
+                    },
+                },
+                watch: {},
+            })
+        </script>
+    </body>
+</html>

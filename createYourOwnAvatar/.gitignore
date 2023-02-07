@@ -1,0 +1,14 @@
+# dependencies
+/node_modules
+
+.prettierrc
+
+# additional dependencies
+/dist
+/coverage
+/vendor
+
+# production
+/prod.env
+/npm-debug.log*
+
